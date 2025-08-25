@@ -1,4 +1,6 @@
 name: glovolite
 description: GlovoLite monorepo
 publish_to: "none"
-# Managed with melos; run `melos bootstrap` to link packages
+
+environment:
+  sdk: ">=3.4.0 <4.0.0"

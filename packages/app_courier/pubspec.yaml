@@ -1,0 +1,13 @@
+name: app_courier
+description: GlovoLite Courier app
+publish_to: "none"
+version: 0.1.0
+environment:
+  sdk: ">=3.4.0 <4.0.0"
+dependencies:
+  flutter:
+    sdk: flutter
+  shared_ui:
+    path: ../shared_ui
+flutter:
+  uses-material-design: true

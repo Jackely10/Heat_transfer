@@ -1,16 +1,15 @@
 workflows:
-  android_debug:
-    name: Android APK – Debug
+  android_consumer_debug:
+    name: Android APK – Consumer (Debug)
     max_build_duration: 60
     environment:
       flutter: stable
     scripts:
-      - name: Prepare
+      - name: Build APK from subdir
         script: |
+          cd packages/app_consumer
           flutter create .
           flutter pub get
-      - name: Build APK
-        script: |
           flutter build apk --debug
     artifacts:
-      - build/app/outputs/flutter-apk/app-debug.apk
+      - packages/app_consumer/build/app/outputs/flutter-apk/app-debug.apk

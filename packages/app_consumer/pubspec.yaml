@@ -1,3 +1,11 @@
+name: app_consumer
+description: GlovoLite Consumer app
+publish_to: "none"
+version: 0.1.0
+
+environment:
+  sdk: ">=3.4.0 <4.0.0"
+
 dependencies:
   flutter:
     sdk: flutter
@@ -9,9 +17,12 @@ dependencies:
     path: ../shared_ui
   flutter_dotenv: ^5.1.0
   webview_flutter: ^4.8.0
+  app_links: ^3.5.1   # ersetzt uni_links
 
-  # NEU:
-  app_links: ^3.5.1  # (oder aktuelle stabile Version)
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^4.0.0
 
-# Alte Zeile entfernen:
-#  uni_links: ^0.5.1
+flutter:
+  uses-material-design: true

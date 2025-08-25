@@ -1,0 +1,6 @@
+name: glovolite
+packages:
+  - packages/*
+command:
+  bootstrap:
+    usePubspecOverrides: true

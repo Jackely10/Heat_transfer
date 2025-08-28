@@ -14,6 +14,7 @@ class _CheckoutWebViewState extends State<CheckoutWebView> {
   StreamSubscription<Uri>? _sub;
   late final AppLinks _appLinks;
   bool _done = false;
+  late final WebViewController _controller;
 
   @override
   void initState() {
@@ -27,6 +28,9 @@ class _CheckoutWebViewState extends State<CheckoutWebView> {
         if (mounted) Navigator.of(context).pop(uri.path.contains('success'));
       }
     });
+    _controller = WebViewController()
+      ..setJavaScriptMode(JavaScriptMode.unrestricted)
+      ..loadRequest(Uri.parse(widget.url));
   }
 
   @override
@@ -39,9 +43,8 @@ class _CheckoutWebViewState extends State<CheckoutWebView> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: const Text('Checkout')),
-      body: WebView(
-        initialUrl: widget.url,
-        javascriptMode: JavascriptMode.unrestricted,
+      body: WebViewWidget(
+        controller: _controller,
       ),
     );
   }

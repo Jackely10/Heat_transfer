@@ -12,18 +12,17 @@ class CheckoutWebView extends StatefulWidget {
 
 class _CheckoutWebViewState extends State<CheckoutWebView> {
   StreamSubscription<Uri>? _sub;
-  late final AppLinks _appLinks;
   bool _done = false;
   late final WebViewController _controller;
 
   @override
   void initState() {
     super.initState();
-    _appLinks = AppLinks();
+    final appLinks = AppLinks();
     _controller = WebViewController()
       ..setJavaScriptMode(JavaScriptMode.unrestricted)
       ..loadRequest(Uri.parse(widget.url));
-    _sub = _appLinks.uriLinkStream.listen((uri) {
+    _sub = appLinks.uriLinkStream.listen((uri) {
       if (_done) return;
       if (uri.host == 'checkout' &&
           (uri.path.contains('success') || uri.path.contains('cancel'))) {
